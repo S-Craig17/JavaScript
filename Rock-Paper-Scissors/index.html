@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Rock, Paper, Scissors Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .choices {
-            display: flex;
-            justify-content: center;
-            margin: 20px;
-        }
-
-        .choice {
-            padding: 10px 20px;
-            background-color: lightgray;
-            border: 1px solid #000;
-            cursor: pointer;
-            margin: 0 10px;
-            transition: background-color 0.3s ease;
-        }
-
-        .choice:hover {
-            background-color: #ddd;
-        }
-
-        #result, #score {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
 </head>
+
 <body>
 
-<h1>Let's play Rock, Paper, Scissors</h1>
-<div class="choices">
-    <div class="choice" onclick="playGame('rock')">Rock</div>
-    <div class="choice" onclick="playGame('paper')">Paper</div>
-    <div class="choice" onclick="playGame('scissors')">Scissors</div>
-</div>
+    <h1>Let's play Rock, Paper, Scissors</h1>
+    <div class="container">
+        <div class="scores">
+            <p>Computer :
+                <span id="computer_score">0</span>
+            </p>
+            <p>
+                You :
+                <span id="user_score">0</span>
+            </p>
+        </div>
+        <div class="weapons">
+            <button>
+                <i class="far fa-hand-rock"></i>
+            </button>
+            <button>
+                <i class="far fa-hand-paper"></i>
+            </button>
+            <button>
+                <i class="far fa-hand-scissors"></i>
+            </button>
+        </div>
+        <div class="details">
+            <p id="user_choice"></p>
+            <p id="comp_choice"></p>
+            <p id="result"></p>
+        </div>
+    </div>
 
-<div id="result"></div>
+    <div id="result"></div>
 
-<script src="app.js"></script>
+    <script src="app.js"></script>
 
 </body>
+
 </html>

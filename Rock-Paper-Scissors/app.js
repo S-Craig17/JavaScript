@@ -1,43 +1,53 @@
-let playerWins = 0;
-let computerWins = 0;
+let [computer_score,user_score]=[0,0];
+let result_ref = document.getElementById("result");
+let choices_object = {
+    'rock' : {
+        'rock' : 'draw',
+        'scissor' : 'win',
+        'paper' : 'lose'
+    },
+    'scissor' : {
+        'rock' : 'lose',
+        'scissor' : 'draw',
+        'paper' : 'win'
+    },
+    'paper' : {
+        'rock' : 'win',
+        'scissor' : 'lose',
+        'paper' : 'draw'
+    }
 
-function playGame(playerChoice) {
-    fetch('/play', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({choice: playerChoice})
-    })
-    .then(response => response.json())
-    .then(data => {
-        const computerChoice = data.computer_choice;
-        const result = data.result;
-        
-        document.getElementById("result").innerHTML = `Computer chose: ${computerChoice}<br>`;
-        
-        if (result === "Player") {
-            playerWins++;
-            document.getElementById("result").innerHTML += "You won this round!";
-        } else if (result === "Computer") {
-            computerWins++;
-            document.getElementById("result").innerHTML += "Computer won this round!";
-        } else {
-            document.getElementById("result").innerHTML += "It's a tie!";
-        }
+}
 
-        document.getElementById("result").innerHTML += `<br>Player: ${playerWins}, Computer: ${computerWins}`;
+function checker(input){
+    var choices = ["rock", "paper", "scissor"];
+    var num = Math.floor(Math.random()*3);
 
-        if (playerWins === 2 || computerWins === 2) {
-            if (playerWins > computerWins) {
-                document.getElementById("result").innerHTML += "<br><strong>Congratulations! You won the best of three.</strong>";
-            } else {
-                document.getElementById("result").innerHTML += "<br><strong>Computer won the best of three. Better luck next time!</strong>";
-            }
+    document.getElementById("comp_choice").innerHTML =
+    ` Computer choose <span> ${choices[num].toUpperCase()} </span>`;
 
-            // Reset the game
-            playerWins = 0;
-            computerWins = 0;
-        }
-    });
+    document.getElementById("user_choice").innerHTML =
+    ` You choose <span> ${input.toUpperCase()} </span>`;
+
+    let computer_choice = choices[num];
+
+    switch(choices_object[input][computer_choice]){
+        case 'win':
+            result_ref.style.cssText = "background-color: #cefdce; color: #689f38";
+            result_ref.innerHTML = "YOU WIN";
+            user_score++;
+            break;
+        case 'lose':
+            result_ref.style.cssText = "background-color: #ffdde0; color: #d32f2f";
+            result_ref.innerHTML = "YOU LOSE";
+            computer_score++;
+            break;
+        default:
+            result_ref.style.cssText = "background-color: #e5e5e5; color: #808080";
+            result_ref.innerHTML = "DRAW";
+            break;
+    }
+
+    document.getElementById("computer_score").innerHTML = computer_score;
+    document.getElementById("user_score").innerHTML = user_score;
 }
