@@ -5,33 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Rock, Paper, Scissors Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Rock-Paper-Scissors Game</title>
 </head>
 
 <body>
 
-    <h1>Let's play Rock, Paper, Scissors</h1>
+    <h1>Rock, Paper, Scissors</h1>
     <div class="container">
         <div class="scores">
-            <p>Computer :
+            <p>Computer:
                 <span id="computer_score">0</span>
             </p>
-            <p>
-                You :
+            <p>You:
                 <span id="user_score">0</span>
             </p>
         </div>
+
+        <!-- Weapons for player choices -->
         <div class="weapons">
-            <button>
+            <button id="rock">
                 <i class="far fa-hand-rock"></i>
             </button>
-            <button>
+            <button id="paper">
                 <i class="far fa-hand-paper"></i>
             </button>
-            <button>
+            <button id="scissors">
                 <i class="far fa-hand-scissors"></i>
             </button>
         </div>
+
         <div class="details">
             <p id="user_choice"></p>
             <p id="comp_choice"></p>
@@ -39,10 +46,10 @@
         </div>
     </div>
 
-    <div id="result"></div>
-
+    
     <script src="app.js"></script>
 
 </body>
 
 </html>
+

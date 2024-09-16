@@ -1,43 +1,52 @@
 *,
 *:before,
-*:after{
+*:after {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     height: 100vh;
-    background: linear-gradient(
-        135deg,
-        #ffcf1b,
-        #ff8b1b
-    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(135deg, #076571, #6e32f0);
 }
-.container{
+
+h1 {
+    color: #a699c3;
+    padding-bottom: 20px;
+    font-family: "Press Start 2P", system-ui;
+    text-align: center;
+}
+
+.container {
     width: 45%;
     min-width: 500px;
-    background-color: #ffffff;
+    background-color: #69b0d9;
     padding: 40px 30px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
     border-radius: 10px;
-    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+    text-align: center; /* Ensure text inside container is centered */
 }
-.scores{
+
+.scores {
     margin-bottom: 50px;
-    text-align: right;
+    font-size: 15px;
 }
-.weapons{
+
+.weapons {
     width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-around;
 }
-.weapons button{
-    background-color: #ffd51b;
-    color: #000000;
+
+.weapons button {
+    background-color: #6d94d3;
+    color: #2a3380;
     border: none;
     font-size: 50px;
     height: 100px;
@@ -46,27 +55,32 @@ body{
     outline: none;
     cursor: pointer;
 }
-.details{
+
+.details {
     margin-top: 30px;
     text-align: center;
-}
-.scores,.details{
-    font-family: 'Poppins',sans-serif;
-    font-weight: 400;
     font-size: 15px;
 }
-#result{
+
+#result {
     width: 180px;
     padding: 10px 0;
     margin: 30px auto;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
+
 #user_choice,
-#computer_choice{
+#computer_choice {
     font-weight: 400;
     margin-bottom: 10px;
 }
-span{
+
+p {
+    color: #9371dc;
+    font-family: "Press Start 2P", system-ui;
+}
+
+span {
     font-weight: 600;
 }
